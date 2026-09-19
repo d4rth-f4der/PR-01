@@ -1,5 +1,6 @@
 package lesson_1;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +12,11 @@ public class Main {
         Product product1 = new Product(1, "Ноутбук", 19999.99, "Високопродуктивний ноутбук для роботи та ігор", electronics);
         Product product2 = new Product(2, "Смартфон", 12999.50, "Смартфон з великим екраном та високою автономністю", smartphones);
         Product product3 = new Product(3, "Навушники", 2499.00, "Бездротові навушники з шумозаглушенням", accessories);
+
+        ProductCatalog catalog = new ProductCatalog();
+        catalog.addProduct(product1);
+        catalog.addProduct(product2);
+        catalog.addProduct(product3);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -24,6 +30,7 @@ public class Main {
             System.out.println("4 - Зробити замовлення");
             System.out.println("5 - Видалити товар з кошика");
             System.out.println("6 - Переглянути історію замовлень");
+            System.out.println("7 - Пошук товарів");
             System.out.println("0 - Вийти");
 
             int choice = scanner.nextInt();
@@ -77,6 +84,20 @@ public class Main {
                     break;
                 case 6:
                     System.out.println(history);
+                    break;
+                case 7:
+                    System.out.println("Введіть пошуковий запит (назва або категорія):");
+                    scanner.nextLine();
+                    String query = scanner.nextLine();
+                    List<Product> searchResults = catalog.searchProducts(query);
+                    if (searchResults.isEmpty()) {
+                        System.out.println("Товарів не знайдено за запитом: " + query);
+                    } else {
+                        System.out.println("Знайдені товари:");
+                        for (Product product : searchResults) {
+                            System.out.println(product);
+                        }
+                    }
                     break;
 
                 case 0:
