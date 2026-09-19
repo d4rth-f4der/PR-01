@@ -14,8 +14,8 @@ public class Cart {
         products.add(product);
     }
 
-    public void removeProduct(Product product) {
-        products.remove(product);
+    public boolean removeProduct(Product product) {
+        return products.remove(product);
     }
 
     public double getTotalPrice() {

@@ -21,6 +21,7 @@ public class Main {
             System.out.println("2 - Додати товар до кошика");
             System.out.println("3 - Переглянути кошик");
             System.out.println("4 - Зробити замовлення");
+            System.out.println("5 - Видалити товар з кошика");
             System.out.println("0 - Вийти");
 
             int choice = scanner.nextInt();
@@ -49,6 +50,26 @@ public class Main {
                         System.out.println("Замовлення оформлено:");
                         System.out.println(order);
                         cart.clear(); // Метод для очищення кошика, який потрібно реалізувати в класі Cart
+                    }
+                    break;
+                case 5:
+                    if (cart.getProducts().isEmpty()) {
+                        System.out.println("Кошик порожній.");
+                        break;
+                    }
+                    System.out.println("Введіть ID товару для видалення з кошика:");
+                    int removeId = scanner.nextInt();
+                    Product toRemove = null;
+                    if (removeId == 1) toRemove = product1;
+                    else if (removeId == 2) toRemove = product2;
+                    else if (removeId == 3) toRemove = product3;
+
+                    if (toRemove == null) {
+                        System.out.println("Товар з таким ID не знайдено.");
+                    } else if (cart.removeProduct(toRemove)) {
+                        System.out.println("Товар успішно видалено з кошика!");
+                    } else {
+                        System.out.println("Цього товару немає у вашому кошику.");
                     }
                     break;
 
