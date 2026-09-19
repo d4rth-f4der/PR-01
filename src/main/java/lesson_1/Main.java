@@ -12,20 +12,6 @@ public class Main {
         Product product2 = new Product(2, "Смартфон", 12999.50, "Смартфон з великим екраном та високою автономністю", smartphones);
         Product product3 = new Product(3, "Навушники", 2499.00, "Бездротові навушники з шумозаглушенням", accessories);
 
-//        System.out.println(product1);
-//        System.out.println(product2);
-//        System.out.println(product3 + "\n");
-//
-//        Cart cart = new Cart();
-//        cart.addProduct(product1);
-//        cart.addProduct(product2);
-//        cart.addProduct(product3);
-//
-//        System.out.println(cart);
-//        cart.removeProduct(product3);
-//        System.out.println("\nПісля видалення товару:");
-//        System.out.println(cart);
-
         Scanner scanner = new Scanner(System.in);
 
         Cart cart = new Cart();

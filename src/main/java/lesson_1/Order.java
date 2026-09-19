@@ -3,6 +3,12 @@ package lesson_1;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Setter;
+import lombok.Getter;
+
+@Setter
+@Getter
+
 public class Order {
     private List<Product> products;
     private double totalPrice;
@@ -15,20 +21,6 @@ public class Order {
         this.status = "Нове";
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-    public String getStatus() {
-        return status;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Замовлення:\n");
@@ -39,6 +31,4 @@ public class Order {
         sb.append("Статус: ").append(status);
         return sb.toString();
     }
-
-
 }

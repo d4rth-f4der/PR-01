@@ -1,30 +1,16 @@
 package lesson_1;
 
+import lombok.Setter;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+
+@Setter
+@Getter
+@AllArgsConstructor
+
 public class Category {
     private int id;
     private String name;
-
-    // конструктор
-    public Category(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public String toString() {
