@@ -15,6 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Cart cart = new Cart();
+        OrderHistory history = new OrderHistory();
         while (true) {
             System.out.println("\nВиберіть опцію:");
             System.out.println("1 - Переглянути список товарів");
@@ -22,6 +23,7 @@ public class Main {
             System.out.println("3 - Переглянути кошик");
             System.out.println("4 - Зробити замовлення");
             System.out.println("5 - Видалити товар з кошика");
+            System.out.println("6 - Переглянути історію замовлень");
             System.out.println("0 - Вийти");
 
             int choice = scanner.nextInt();
@@ -47,6 +49,7 @@ public class Main {
                         System.out.println("Кошик порожній. Додайте товари перед оформленням замовлення.");
                     } else {
                         Order order = new Order(cart);
+                        history.addOrder(order);
                         System.out.println("Замовлення оформлено:");
                         System.out.println(order);
                         cart.clear(); // Метод для очищення кошика, який потрібно реалізувати в класі Cart
@@ -71,6 +74,9 @@ public class Main {
                     } else {
                         System.out.println("Цього товару немає у вашому кошику.");
                     }
+                    break;
+                case 6:
+                    System.out.println(history);
                     break;
 
                 case 0:
